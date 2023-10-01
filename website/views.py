@@ -1,9 +1,12 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth import authenticate,login,logout
 from django.contrib import messages
+from .models import status
 
 # Create your views here.
 def home(request):
+    stat=status.objects.all()
+    
     if request.method == "POST":
         username = request.POST['username']
         password = request.POST['password']
@@ -16,8 +19,11 @@ def home(request):
         else :
             messages.success(request, "Error logging In")
             return redirect('home')
-    return render(request, 'home.html', {})
+    else:
+        return render(request, 'home.html', {'records': stat})
 
 
 def logout_user(request):
-    pass
+    logout(request)
+    messages.success(request, "Logged out")
+    return redirect('home')
