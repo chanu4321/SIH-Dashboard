@@ -27,3 +27,11 @@ def logout_user(request):
     logout(request)
     messages.success(request, "Logged out")
     return redirect('home')
+
+def bulbissue(request,pk):
+    if request.user.is_authenticated :
+        problem = status.objects.get(id=pk)
+        return render(request, 'record.html', {'problem': problem})
+    else:
+        messages.success(request, "Login to view")
+        return redirect('home')

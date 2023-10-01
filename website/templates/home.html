@@ -13,18 +13,16 @@
       <th scope="col">Current Leakeage</th>
       <th scope="col">Broken Wire</th>
       <th scope="col">No Signal</th>
-      <th scope="col">ID</th>
     </tr>
   </thead>
   <tbody class="table-group-divider">
     {% if records %}
-      {% for record in records%}
+      {% for record in records %}
         <tr>
-          <td>{{record.Bulb_Issue}} </td>
+          <td><a href="{% url 'record' status.id %}">{{record.Bulb_Issue}}</a> </td>
           <td>{{record.Curr_Leak}}</td>
           <td>{{record.Brok_Wire}}</td>
           <td>{{record.No_Sgnl}}</td>
-          <td>{{record.id}}</td> 
         <br/>
         </tr>
   {% endfor %}
@@ -32,6 +30,7 @@
 </table>
 
 {% else %}
+<div class="col-md-6 offset-md-3">
 <h1> Login </h1>
 <br/>
 <form method ="POST" action="{% url 'home' %}">
@@ -45,7 +44,7 @@
         </div>
         <button type="submit" class="btn btn-secondary">Login</button>
       </form>
-
 </form>
+</div>
 {% endif %}
 {% endblock %}
