@@ -1,18 +1,17 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Status</h1>
+<h1 style="color:white">Status</h1>
 
 {% if problem1 %}
-    <p>Problem 1: {{ problem1 }}</p>
-
+    <p style="color:white">Problem 1: {{ problem1 }}</p> 
 {% elif problem2 %}
-    <p>Problem 2: {{ problem2 }}</p>
+    <p style="color:white">Problem 2: {{ problem2 }}</p>
 
 {% elif problem3 %}
-    <p>Problem 3: {{ problem3 }}</p>
+    <p style="color:white">Problem 3: {{ problem3 }}</p>
 
 {% elif problem4 %}
-    <p>Problem 4: {{ problem4 }}</p>
+    <p style="color:white">Problem 4: {{ problem4 }}</p>
 {% endif %}
 {% endblock %}
