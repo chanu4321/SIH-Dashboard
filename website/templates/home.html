@@ -19,10 +19,10 @@
     {% if records %}
       {% for record in records %}
         <tr>
-          <td><a href="{% url 'record' record.Bulb_Issue %}">{{record.Bulb_Issue}}</a> </td>
-          <td><a href="{% url 'record' record.Curr_Leak %}">{{record.Curr_Leak}}</a></td>
-          <td><a href="{% url 'record' record.Brok_Wire %}">{{record.Brok_Wire}}</a></td>
-          <td><a href="{% url 'record' record.No_Sgnl %}">{{record.No_Sgnl}}</a></td>
+          <td><a href="{% url 'problem1' record.Bulb_Issue %}">{{record.Bulb_Issue}}</a> </td>
+          <td><a href="{% url 'problem2' record.Curr_Leak %}">{{record.Curr_Leak}}</a></td>
+          <td><a href="{% url 'problem3' record.Brok_Wire %}">{{record.Brok_Wire}}</a></td>
+          <td><a href="{% url 'problem4' record.No_Sgnl %}">{{record.No_Sgnl}}</a></td>
         <br/>
         </tr>
   {% endfor %}
