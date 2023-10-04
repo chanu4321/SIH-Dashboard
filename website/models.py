@@ -1,9 +1,36 @@
 from django.db import models
 
 # Create your models here.
-class status(models.Model):
-    create_at = models.DateTimeField(auto_now_add=True)
-    Bulb_Issue= models.CharField(max_length=10)
-    Curr_Leak= models.CharField(max_length=10)
-    Brok_Wire=models.CharField(max_length=10)
-    No_Sgnl= models.CharField(max_length=10)
+
+class Bulb(models.Model) :
+    location=models.CharField(max_length=225)
+    def __str__(self):
+        return f"{self.id}-{self.location}"
+
+class IssueBase(models.Model) :
+    bulb=models.ForeignKey("website.Bulb",on_delete= models.CASCADE)
+    class Meta :
+        abstract=True
+
+class CommonIssue(IssueBase) :
+    def __str__(self):
+        return f"ST-{self.bulb.id}" 
+
+class CurrentLeakeageIssue(IssueBase) :
+    def __str__(self):
+        return f"ST-{self.bulb.id}" 
+    
+class BrokenWireIssue(IssueBase) :
+    def __str__(self):
+        return f"ST-{self.bulb.id}" 
+    
+class NoSignalIssue(IssueBase) :
+    def __str__(self):
+        return f"ST-{self.bulb.id}" 
+    
+ALL_ISSUES_MODELS=[
+    CommonIssue,
+    CurrentLeakeageIssue,
+    BrokenWireIssue,
+    NoSignalIssue,
+]

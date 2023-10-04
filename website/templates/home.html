@@ -6,7 +6,7 @@
 {% if user.is_authenticated %}
 <h1 style="color:white;"> Dashboard </h1>
 
-<table class="table table-hover table-bordered">
+{% comment %} <table class="table table-hover table-bordered">
   <thead class="table-dark">
     <tr>
       <th scope="col">Bulb Issue</th>
@@ -16,8 +16,6 @@
     </tr>
   </thead>
   <tbody class="table-group-divider">
-    {% if records %}
-      {% for record in records %}
         <tr>
           <td><a href="{% url 'problem1' record.Bulb_Issue %}">{{record.Bulb_Issue}}</a> </td>
           <td><a href="{% url 'problem2' record.Curr_Leak %}">{{record.Curr_Leak}}</a></td>
@@ -25,10 +23,43 @@
           <td><a href="{% url 'problem4' record.No_Sgnl %}">{{record.No_Sgnl}}</a></td>
         <br/>
         </tr>
-  {% endfor %}
-{% endif %}
-</table>
+</table> {% endcomment %}
 
+<div id="issuetable" class="d-flex">
+
+  <div class="d-flex flex-column">
+    <span> Common Issue </span>
+    {% if common_issues %}
+    {% for issue in common_issues %}
+      <span> {{issue}} </span>
+    {% endfor %}
+    {% endif %}
+  </div>
+  <div class="d-flex flex-column">
+    <span> Current Leakage </span>
+    {% if current_leakage %}
+    {% for issue in current_leakage %}
+      <span> {{issue}} </span>
+    {% endfor %}
+    {% endif %}
+  </div>
+  <div class="d-flex flex-column">
+    <span> Broken Wire </span>
+    {% if broken_wire %}
+    {% for issue in broken_wire %}
+      <span> {{issue}} </span>
+    {% endfor %}
+    {% endif %}
+  </div>
+  <div class="d-flex flex-column">
+    <span> No Signal </span>
+    {% if no_signal %}
+    {% for issue in no_signal %}
+      <span> {{issue}} </span>
+    {% endfor %}
+    {% endif %}
+  </div>
+</div>
 {% else %}
 <div class="col-md-6 offset-md-3">
 <h1 style="color:white;"> Login </h1>
