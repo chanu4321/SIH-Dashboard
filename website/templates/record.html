@@ -3,15 +3,15 @@
 {% block content %}
 <h1 style="color:white">Status</h1>
 
-{% if problem1 %}
-    <p style="color:white">Problem 1: {{ problem1 }}</p> 
-{% elif problem2 %}
-    <p style="color:white">Problem 2: {{ problem2 }}</p>
+{% if bulbissue %}
+    <p style="color:white">Problem 1: {{ bulbissue.Bulb_Issue }}</p> 
+{% elif currleak %}
+    <p style="color:white">Problem 2: {{ currleak.Curr_Leak }}</p>
 
-{% elif problem3 %}
-    <p style="color:white">Problem 3: {{ problem3 }}</p>
+{% elif brokenwire %}
+    <p style="color:white">Problem 3: {{brokenwire.Brok_Wire}}</p>
 
-{% elif problem4 %}
-    <p style="color:white">Problem 4: {{ problem4 }}</p>
+{% elif nosignal %}
+    <p style="color:white">Problem 4: {{nosignal.No_Sgnl}} </p>
 {% endif %}
 {% endblock %}
